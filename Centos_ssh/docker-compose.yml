@@ -1,0 +1,20 @@
+version: '2'
+services:
+  centos_ssh_1:
+    image: centos:centos_ssh
+    privileged: true
+    entrypoint: ["/bin/bash", "-c", "echo -e 'root:1234' | chpasswd && /usr/sbin/init","systemctl start sshd"]
+    ports:
+      - 9000:22
+    networks:
+      - mynet
+  centos_ssh_2:
+    image: centos:centos_ssh
+    privileged: true
+    entrypoint: ["/bin/bash", "-c", "echo -e 'root:1234' | chpasswd && /usr/sbin/init" ,"systemctl start sshd"]
+    ports:
+      - 9001:22
+    networks:
+      - mynet
+networks:
+  mynet:

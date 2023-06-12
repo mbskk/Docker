@@ -1,0 +1,2 @@
+docker run -dit --name (container_name) --privileged centos /usr/sbin/init
+echo -e "linuxpassword\nlinuxpassword" | passwd linuxuser
